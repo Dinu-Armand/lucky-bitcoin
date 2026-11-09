@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { height: 100%; }
+body { @apply bg-bg text-tx font-sans antialiased; background-image: radial-gradient(1200px 500px at 70% -10%, rgba(252,213,53,0.06), transparent); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #2B3139; border-radius: 8px; }
+
+@layer components {
+  .card { @apply bg-card/90 border border-line rounded-2xl backdrop-blur-md; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-150 active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed; }
+  .btn-gold { @apply btn bg-gold text-bg hover:brightness-110; }
+  .btn-ghost { @apply btn bg-transparent border border-line text-tx hover:bg-line/50; }
+  .btn-up { @apply btn bg-up text-bg hover:brightness-110; }
+  .btn-down { @apply btn bg-down text-white hover:brightness-110; }
+  .btn-sm { @apply px-3 py-1.5 text-xs rounded-lg; }
+  .input { @apply w-full bg-bg border border-line rounded-xl px-3 py-2 text-sm text-tx outline-none focus:border-gold transition-colors placeholder:text-tx2/60; }
+  .label { @apply block text-xs text-tx2 mb-1; }
+  .num { @apply font-mono tabular-nums; }
+  .th { @apply text-left text-[11px] uppercase tracking-wide text-tx2 font-medium px-3 py-2 whitespace-nowrap; }
+  .td { @apply px-3 py-2 text-sm whitespace-nowrap; }
+  .chip { @apply inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold; }
+  .tab { @apply px-3 py-1.5 text-sm rounded-lg text-tx2 hover:text-tx transition-colors; }
+  .tab-on { @apply bg-line text-gold; }
+}
+
+.prose-lb h1 { @apply text-2xl font-bold text-gold mt-2 mb-3; }
+.prose-lb h2 { @apply text-xl font-semibold text-tx mt-8 mb-2 pb-1 border-b border-line; }
+.prose-lb h3 { @apply text-base font-semibold text-gold mt-5 mb-1; }
+.prose-lb p { @apply text-sm text-tx2 leading-relaxed my-2; }
+.prose-lb ul { @apply list-disc pl-5 text-sm text-tx2 my-2 space-y-1; }
+.prose-lb ol { @apply list-decimal pl-5 text-sm text-tx2 my-2 space-y-1; }
+.prose-lb strong { @apply text-tx; }
+.prose-lb code { @apply font-mono text-xs bg-bg border border-line rounded px-1 py-0.5 text-gold; }
+.prose-lb pre { @apply bg-bg border border-line rounded-xl p-3 overflow-x-auto my-3; }
+.prose-lb pre code { @apply border-0 p-0 text-tx; }
+.prose-lb table { @apply w-full text-sm my-3 border-collapse; }
+.prose-lb th { @apply text-left text-xs uppercase text-tx2 border-b border-line px-2 py-1; }
+.prose-lb td { @apply text-tx2 border-b border-line/50 px-2 py-1 align-top; }
+
+@keyframes slidein { from { transform: translateY(8px); opacity: 0 } to { transform: none; opacity: 1 } }
+.anim-in { animation: slidein .18s ease-out; }
